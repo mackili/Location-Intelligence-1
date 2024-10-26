@@ -242,7 +242,9 @@ Chosen Access Points: ['AP-1-2-2', 'AP-1-5-5', ..., 'AP-7-17-3']
 
 ## Visualized output
 
-[View in interactive form![Vizual output](./access_point_plot.svg)](./access_point_plot.html)
+[View in interactive form. Download the html file and open it with your browser.](./access_point_plot.html)
+
+![Vizual output](./access_point_plot.svg)
 
 ## Conclusion
 
