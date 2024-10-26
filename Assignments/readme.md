@@ -242,7 +242,7 @@ Chosen Access Points: ['AP-1-2-2', 'AP-1-5-5', ..., 'AP-7-17-3']
 
 ## Visualized output
 
-[View in interactive form![Vizual output](./access_point_plot.svg)](https://htmlpreview.github.io/?https://github.com/mackili/Location-Intelligence-1/blame/e8ba417d44f19144b8ba1fbd914e45debd5abb53/Assignments/access_point_plot.html)
+[View in interactive form![Vizual output](./access_point_plot.svg)](./access_point_plot.html)
 
 ## Conclusion
 
