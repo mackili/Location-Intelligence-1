@@ -240,6 +240,10 @@ Chosen Access Points: ['AP-1-2-2', 'AP-1-5-5', ..., 'AP-7-17-3']
 - **Minimum number of access points**: The least number required to cover all desks.
 - **Chosen Access Points**: List of access points that need to be installed.
 
+## Visualized output
+
+[View in interactive form![Vizual output](./access_point_plot.svg)](./access_point_plot.html)
+
 ## Conclusion
 
 The code efficiently solves the WiFi access point placement problem by:

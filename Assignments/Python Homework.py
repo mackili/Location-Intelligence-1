@@ -4,6 +4,8 @@ import random
 import math
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
+import plotly.graph_objects as go
+import numpy as np
 
 random.seed(1)
 
@@ -62,7 +64,73 @@ def plot_solution(
     ax.set_zlabel("Floor")
     ax.legend()
 
+    plt.savefig("assignments/access_point_plot.svg")
     plt.show()
+
+
+def plot_solution_interactive(
+    access_points: dict, desks: dict, chosen_access_point_keys: list
+) -> None:
+    fig = go.Figure()
+
+    # Plot access points excluding the chosen ones
+    not_chosen_access_points = {
+        key: access_points[key]
+        for key in access_points
+        if key not in chosen_access_point_keys
+    }
+    not_chosen_ap_xs = [ap["row"] for ap in not_chosen_access_points.values()]
+    not_chosen_ap_ys = [ap["column"] for ap in not_chosen_access_points.values()]
+    not_chosen_ap_zs = [ap["floor"] for ap in not_chosen_access_points.values()]
+    fig.add_trace(
+        go.Scatter3d(
+            x=not_chosen_ap_xs,
+            y=not_chosen_ap_ys,
+            z=not_chosen_ap_zs,
+            mode="markers",
+            marker=dict(size=1, color="red"),
+            name="Unutilized Points",
+        )
+    )
+
+    # Plot desks
+    desk_xs = [desk["row"] for desk in desks.values()]
+    desk_ys = [desk["column"] for desk in desks.values()]
+    desk_zs = [desk["floor"] for desk in desks.values()]
+    fig.add_trace(
+        go.Scatter3d(
+            x=desk_xs,
+            y=desk_ys,
+            z=desk_zs,
+            mode="markers",
+            marker=dict(size=2, color="blue"),
+            name="Desks",
+        )
+    )
+
+    # Highlight chosen access points
+    chosen_access_points = {key: access_points[key] for key in chosen_access_point_keys}
+    chosen_ap_xs = [ap["row"] for ap in chosen_access_points.values()]
+    chosen_ap_ys = [ap["column"] for ap in chosen_access_points.values()]
+    chosen_ap_zs = [ap["floor"] for ap in chosen_access_points.values()]
+    fig.add_trace(
+        go.Scatter3d(
+            x=chosen_ap_xs,
+            y=chosen_ap_ys,
+            z=chosen_ap_zs,
+            mode="markers",
+            marker=dict(size=6, color="green"),
+            name="Chosen Access Points",
+        )
+    )
+
+    fig.update_layout(
+        scene=dict(xaxis_title="Row", yaxis_title="Column", zaxis_title="Floor")
+    )
+
+    fig.write_html(
+        "assignments/access_point_plot.html", full_html=False, include_plotlyjs="cdn"
+    )
 
 
 def calculate_distance(desk, access_point) -> float:
@@ -183,6 +251,9 @@ def problem() -> None:
     chosen_access_points = [i for i in access_points if pulp.value(y[i]) == 1]
     print(chosen_access_points)
     plot_solution(access_point_locations, desk_locations, chosen_access_points)
+    plot_solution_interactive(
+        access_point_locations, desk_locations, chosen_access_points
+    )
 
 
 problem()
