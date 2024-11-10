@@ -253,9 +253,9 @@ Chosen Access Points: ['AP-1-2-2', 'AP-1-5-5', ..., 'AP-7-17-3']
 
 ## Visualized output
 
-[View in interactive form. Download the html file and open it with your browser.](./access_point_plot.html)
+[View in interactive form. Download the html file and open it with your browser.](https://github.com/mackili/Location-Intelligence-1/blob/4cfe6d9736adc8f01050858738ec504a0832b4f4/Assignments/access_point_plot.html)
 
-![Vizual output](./access_point_plot.svg)
+![Vizual output](./Assignments/access_point_plot.png)
 
 ## Conclusion
 
