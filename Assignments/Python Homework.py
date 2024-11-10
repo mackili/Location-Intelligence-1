@@ -65,6 +65,7 @@ def plot_solution(
     ax.legend()
 
     plt.savefig("assignments/access_point_plot.svg")
+    plt.savefig("assignments/access_point_plot.png")
     plt.show()
 
 
