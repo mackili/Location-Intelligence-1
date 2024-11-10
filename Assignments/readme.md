@@ -1,5 +1,12 @@
 # WiFi Access Point Optimization in an Office Building
 
+**Authors:**  
+Sam Cowell, h12328445  
+Léna Langer, h12100679  
+Maciej Kilijański, h12018188
+
+---
+
 This code addresses the problem of optimizing WiFi coverage in a multi-floor office building. The goal is to **minimize the number of WiFi access points** (APs) installed while ensuring that every desk in the building is within a specified distance threshold for good signal strength.
 
 ## Problem Description
@@ -46,7 +53,11 @@ from mpl_toolkits.mplot3d import Axes3D
 
 ```python
 random.seed(1)
+```
 
+Setting seed for random generation for a predictable, repetitive result.
+
+```python
 floors = 7
 rows = 20
 columns = 7
@@ -55,12 +66,12 @@ floor_height = 3
 row_length = 1.5
 column_width = 2.5
 random_generated_ap_locations = False
-S = 750  # Distance threshold in centimeters
+S = 750
 ```
 
 - **Building Dimensions**: Defined by `floors`, `rows`, and `columns`.
 - **Physical Dimensions**: Real-world distances between points in the grid.
-- **Distance Threshold (S)**: Maximum distance for good signal strength.
+- **Distance Threshold (S)**: Maximum distance for good signal strength in centimeters.
 
 ### Functions
 
@@ -255,3 +266,7 @@ The code efficiently solves the WiFi access point placement problem by:
 - **Scalability**: The approach can be adapted for buildings of different sizes and configurations.
 
 By utilizing linear programming and spatial analysis, the solution provides a practical method for network planning in large office environments.
+
+---
+
+The code is accessible on [GitHub](https://github.com/mackili/Location-Intelligence-1/tree/4b4bf731f9fa533ff318bdae61a66fe588de85df/Assignments)
